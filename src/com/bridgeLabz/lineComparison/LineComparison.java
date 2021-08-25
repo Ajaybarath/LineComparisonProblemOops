@@ -1,33 +1,35 @@
 package com.bridgeLabz.lineComparison;
 
+
 public class LineComparison {
 	
 	public static void main(String args[]) {
+		
+		Line line1 = new Line(2,4,8,5);
+		Line line2 = new Line(4,1,6,15);
+		
+		System.out.println("Length of line 1 is " + line1.length());
+		
+		System.out.println("Length of line 2 is " + line2.length());
 
-		int x1 = 2;
-		int x2 = 40;
-		int y1 = 3;
-		int y2 = 15;
+		lineDifference(line1.length(), line2.length());
 		
-		int x3 = 3;
-		int x4 = 30;
-		int y3 = 7;
-		int y4 = 50;
+		lineComparator(line1.length(), line2.length());
 		
-		Integer lengthOfLine1 = (int) Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
-		
-		Integer lengthOfLine2 = (int) Math.sqrt(Math.pow((x4-x3), 2) + Math.pow((y4-y3), 2));
-		
-		System.out.println(lengthOfLine1);
-		System.out.println(lengthOfLine2);
-
+	}
+	
+	public static void lineDifference(Integer lengthOfLine1, Integer lengthOfLine2) {
+				
 		if (lengthOfLine1.equals(lengthOfLine2)) {
 			System.out.println("The lines are equal");
 		}
 		else {
 			System.out.println("Lines are not equal");
 		}
-		
+	}
+	
+	
+	public static void lineComparator(Integer lengthOfLine1, Integer lengthOfLine2) {
 		
 		int lineDifference = lengthOfLine1.compareTo(lengthOfLine2);
 		
@@ -42,5 +44,25 @@ public class LineComparison {
 		}
 		
 	}
+	
+}
+
+class Line {
+	
+	int x1, x2, y1, y2;
+	
+	Line(int x1, int y1, int x2, int y2) {
+		this.x1 = x1;
+		this.x2 = x2;
+		this.y1 = y1;
+		this.y2 = y2;
+	}
+	
+	public Integer length() {
+		int lengthOfLine = (int) Math.sqrt(Math.pow((x2-x1), 2) + Math.pow((y2-y1), 2));
+		
+		return lengthOfLine;
+	}
+	
 
 }
